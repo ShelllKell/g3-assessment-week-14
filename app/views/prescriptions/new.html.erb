@@ -1,0 +1,36 @@
+<h1>Add a prescription to PATIENT NAME</h1>
+
+<%= form_for @prescription, url: "/patients/#{:patient_id}/prescriptions" do |f| %>
+
+  <div class="container">
+    <%= f.label :medication %>
+    <%= f.text_field :medication %>
+  </div>
+
+  <div class="container">
+    <%= f.label :dosage %>
+    <%= f.text_field :dosage %>
+  </div>
+
+  <div class="container">
+    <%= f.label :schedule %>
+    <%= f.text_field :schedule %>
+  </div>
+
+  <div class="container">
+    <%= f.label :starts_on %>
+    <%= f.date_select :starts_on %>
+  </div>
+
+  <div class="container">
+    <%= f.label :ends_on %>
+    <%= f.date_select :ends_on %>
+  </div>
+
+
+
+  <div class="container">
+    <%= f.submit "Create Prescription" %>
+  </div>
+
+<% end %>
