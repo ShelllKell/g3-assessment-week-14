@@ -1,0 +1,34 @@
+<h1>Add a prescription for <%= full_name(@patient) %></h1>
+
+<%= form_for [@patient, @prescription] do |f| %>
+
+
+    <% if @prescription.errors.any? %>
+    <div class="errors">
+      <% @prescription.errors.full_messages.each do |message| %>
+        <ul>
+          <%= message %>
+        </ul>
+      <% end %>
+      </div>
+    <% end %>
+
+    <%= f.label :medication %>
+    <%= f.select :medication_id, Medication.all.collect { |x| [x.name, x.id] } %>
+    <br>
+    <%= f.label :dosage %>
+    <%= f.text_field :dosage %>
+    <br>
+    <%= f.label :schedule %>
+    <%= f.text_field :schedule %>
+    <br>
+    <%= f.label :starts_on %>
+    <%= f.date_select :starts_on %>
+    <br>
+    <%= f.label :ends_on %>
+    <%= f.date_select :ends_on %>
+    <br>
+    <br>
+    <%= f.submit "Create Prescription" %>
+
+<% end %>

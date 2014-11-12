@@ -48,10 +48,6 @@ main {
   float: right;
 }
 
-.errors {
-  color: maroon;
-  margin-bottom: 1em;
-}
 
 .signin-form {
   width: 20em;
@@ -93,4 +89,17 @@ main {
       background: $light-gray;
     }
   }
+}
+
+.right {
+  float: right;
+}
+
+.field_with_errors {
+  display: inline;
+}
+
+.errors {
+  color: maroon;
+  margin-bottom: 1em;
 }

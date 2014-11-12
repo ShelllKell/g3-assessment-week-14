@@ -3,13 +3,26 @@
   <thead>
   <tr>
     <h3>Prescriptions</h3>
-
+    <div class="right"><%= link_to "Add Prescription", new_patient_prescription_path(@patient) %></div>
   </tr>
   </thead>
+  <br>
+  <%= flash[:notice] %>
+  <br>
   <tbody>
-  <th>Medication</th>
-  <th>Dosage/Schedule</th>
-  <th>Dates</th>
+  <tr>
+    <th>Medication</th>
+    <th>Dosage/Schedule</th>
+    <th>Dates</th>
+  </tr>
+
+  <% @prescriptions.each do |prescription| %>
+    <tr>
+      <td><%= prescription.medication.name %> </td>
+      <td><%= "#{prescription.dosage}/#{prescription.schedule}" %></td>
+      <td><%= "#{prescription.starts_on} - #{prescription.ends_on}" %></td>
+    </tr>
+  <% end %>
 
   </tbody>
 </table>
