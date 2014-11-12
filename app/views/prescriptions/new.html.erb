@@ -1,32 +1,36 @@
-<h1>Add a prescription to PATIENT NAME</h1>
+<h1><%= "Add a prescription to NAME" %></h1>
 
-<%= form_for @prescription, url: "/patients/#{:patient_id}/prescriptions" do |f| %>
+<%= form_for @prescription, url: patient_prescriptions_path(patient_id: @patient.id) do |f| %>
 
-  <div class="container">
-    <%= f.label :medication %>
-    <%= f.text_field :medication %>
-  </div>
+  <ul>
+    <li>
+      <%= f.label :medication %>
+      <%= f.text_field :medication %>
+    </li>
 
-  <div class="container">
-    <%= f.label :dosage %>
-    <%= f.text_field :dosage %>
-  </div>
 
-  <div class="container">
-    <%= f.label :schedule %>
-    <%= f.text_field :schedule %>
-  </div>
+    <li>
+      <%= f.label :dosage %>
+      <%= f.text_field :dosage %>
+    </li>
 
-  <div class="container">
-    <%= f.label :starts_on %>
-    <%= f.date_select :starts_on %>
-  </div>
 
-  <div class="container">
-    <%= f.label :ends_on %>
-    <%= f.date_select :ends_on %>
-  </div>
+    <li>
+      <%= f.label :schedule %>
+      <%= f.text_field :schedule %>
+    </li>
 
+
+    <li>
+      <%= f.label :starts_on %>
+      <%= f.date_select :starts_on %>
+    </li>
+
+    <li>
+      <%= f.label :ends_on %>
+      <%= f.date_select :ends_on %>
+    </li>
+  </ul>
 
 
   <div class="container">

@@ -15,7 +15,7 @@ class PrescriptionsController < ApplicationController
 
   def create
     @prescription = Prescription.new(allowed_parameters)
-    # @patient = Patient.find(params[:patient_id])
+    @patient = Patient.find(params[:patient_id])
     @prescription.patient = @patient
 
     if @prescription.save
