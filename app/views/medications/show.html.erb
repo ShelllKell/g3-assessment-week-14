@@ -1,23 +1,28 @@
-<h2><%= full_name(@patient) %></h2>
+
+<% @patients.each do |patient| %>
+<%= full_name(patient) %>
+<% end %>
+
+
+
 <table class="table">
   <thead>
   <tr>
-    <h3>Prescriptions</h3>
-    <div class="right"><%= link_to "Add Prescription", new_patient_prescription_path(@patient) %></div>
+    <h3><%= @medication.name %></h3>
   </tr>
   </thead>
-  <br>
-  <%= flash[:notice] %>
-  <br>
+
   <tbody>
   <tr>
-    <th>Medication</th>
+    <th>Patient</th>
     <th>Dosage/Schedule</th>
     <th>Dates</th>
+    <th>Prescribed By</th>
   </tr>
 
-  <% @patient.prescriptions.each do |prescription| %>
+  <% @patients.each do |prescription| %>
     <tr>
+      <td><%= prescription.patient.name %></td>
       <td><%= prescription.medication.name %> </td>
       <td><%= "#{prescription.dosage}/#{prescription.schedule}" %></td>
       <td><%= "#{prescription.starts_on} - #{prescription.ends_on}" %></td>
