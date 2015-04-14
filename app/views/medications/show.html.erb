@@ -1,10 +1,4 @@
 
-<% @patients.each do |patient| %>
-<%= full_name(patient) %>
-<% end %>
-
-
-
 <table class="table">
   <thead>
   <tr>
@@ -20,12 +14,12 @@
     <th>Prescribed By</th>
   </tr>
 
-  <% @patients.each do |prescription| %>
+  <% @medication.prescriptions.each do |prescription| %>
     <tr>
-      <td><%= prescription.patient.name %></td>
-      <td><%= prescription.medication.name %> </td>
-      <td><%= "#{prescription.dosage}/#{prescription.schedule}" %></td>
-      <td><%= "#{prescription.starts_on} - #{prescription.ends_on}" %></td>
+      <td> <%= prescription.patient.first_name %></td>
+      <td><%= prescription.dosage %></td>
+      <td><%= prescription.schedule %></td>
+      <td><%= prescription.get_user_name(prescription.user_id) %></td>
     </tr>
   <% end %>
 

@@ -1,6 +1,5 @@
 class PrescriptionsController < ApplicationController
-
-
+1
   def new
     @patient = Patient.find(params[:patient_id])
     @prescription = Prescription.new
@@ -8,7 +7,7 @@ class PrescriptionsController < ApplicationController
 
   def create
     @patient = Patient.find(params[:patient_id])
-    @prescription = Prescription.new(allowed_params)
+    @prescription = Prescription.new(allowed_params.merge(user_id: current_user.id, patient: @patient))
 
       if @prescription.save
         @patient.prescriptions << @prescription
